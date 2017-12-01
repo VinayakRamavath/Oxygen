@@ -165,11 +165,11 @@ public class DomainExpertController {
                      
             finance.write("]");
             finance.flush();
-            return new ResponseEntity<String>("Undergoing finance Concept Population...            (E.T : 15 mins)", HttpStatus.OK);
+            return new ResponseEntity<String>("Undergoing finance Concept Population...", HttpStatus.OK);
             
         }
         
-        return new ResponseEntity<String>("Undergoing Concept Population...            (E.T : 15 mins)", HttpStatus.OK);
+        return new ResponseEntity<String>("Undergoing Concept Population...", HttpStatus.OK);
         
     }
 }
