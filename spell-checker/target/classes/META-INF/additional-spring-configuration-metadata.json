@@ -1,0 +1,12 @@
+{"properties": [
+  {
+    "name": "spellcheck.rootdir",
+    "type": "java.lang.String",
+    "description": "A description for 'spellcheck.rootdir'"
+  },
+  {
+    "name": "spellcheck.dictionaries",
+    "type": "java.lang.String",
+    "description": "A description for 'spellcheck.dictionaries'"
+  }
+]}

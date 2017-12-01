@@ -1,0 +1,20 @@
+Indexing Service (Aditya Garg)
+
+Rest Endpoint Documentation
+
+GET
+http://172.23.238.215:8080/v1/semanticsearch/indexservice
+Request:
+{
+}
+
+
+Micro Service Kafka Documentation
+
+Consuming Data from Kafka
+
+    Kafka Topic: "parserproducer"
+    Message: 
+		{
+			Termscore (json/String)	
+		}

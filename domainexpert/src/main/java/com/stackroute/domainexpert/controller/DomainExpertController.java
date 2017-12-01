@@ -136,7 +136,7 @@ public class DomainExpertController {
                     } 
             java.write("]");
             java.flush();
-            return new ResponseEntity<String>("Undergoing java Concept Population...            (E.T : 15 mins)", HttpStatus.OK);
+            return new ResponseEntity<String>("Undergoing java Concept Population...", HttpStatus.OK);
             
         }
         
