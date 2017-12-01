@@ -25,6 +25,7 @@ public class Listener {
 	
 	@KafkaListener(topics = "google")
 	public void listen(SearchResultsModel  record) throws MalformedURLException, IOException {
+		System.out.println("from google");
 		System.out.println(record);
 
 			for(int i=0;i<10;i++) {

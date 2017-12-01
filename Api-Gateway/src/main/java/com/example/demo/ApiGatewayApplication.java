@@ -17,7 +17,7 @@ import com.example.demo.filters.RouteFilter;
 @SpringBootApplication
 
 /*this annotation uses netflix zuul as a gateway to microservice*/
-@EnableDiscoveryClient
+//@EnableDiscoveryClient
 
 /*this annotation registers this service on eureka discovery service*/
 @EnableZuulProxy

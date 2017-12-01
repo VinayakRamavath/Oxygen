@@ -63,7 +63,12 @@ public class CrawlerController {
 			crawlerModel.setDoc(pageContent.toString());
 			crawlerModel.setSnippet(snippet);
 			crawlerModel.setTitle(title);
-			
+			System.out.println("url post");
+			System.out.println(crawlerModel.getUrl());
+			System.out.println(crawlerModel.getDomain());
+			System.out.println(crawlerModel.getConcept());
+			System.out.println(crawlerModel.getSnippet());
+			System.out.println(crawlerModel.getTitle());
 			kafkaSender.send(crawlerModel);
 			
 		 
