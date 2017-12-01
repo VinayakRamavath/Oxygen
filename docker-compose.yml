@@ -1,0 +1,182 @@
+version: "2"
+services:
+  kafka :
+    image : spotify/kafka
+    container_name : kafka
+    ports :
+      - "9092:9092"
+      - "2181:2181"
+    environment:
+      - ADVERTISED_PORT=9092
+
+  api-gateway:
+    build : ./Api-Gateway
+    container_name : api-gateway
+    image: api
+    ports :
+      - "5000:8082"
+
+  eureka:
+    build : ./discovery-service-eureka
+    container_name : eureka
+    ports :
+      - "8020:8020"
+
+  sqldb:
+    image: mysql:latest
+    restart: always
+    expose:
+      - 3306
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+      MYSQL_ROOT_PASSWORD: aditya123
+      MYSQL_DATABASE: oauth
+      MYSQL_USER: root
+
+  ui : 
+    build : ./UserUI
+    expose :
+      - "4200"
+    ports : 
+      - "4200:4200"
+
+  oauthservice:
+    build: ./OAuthService
+    links:
+      - sqldb
+    # depends_on:
+    #   - sqldb
+    ports:
+      - 8090:8087
+    environment:
+      DATABASE_HOST: sqldb
+      DATABASE_USER: root
+      DATABASE_PASSWORD: aditya123
+      DATABASE_NAME: oauth
+      DATABASE_PORT: 3306
+  
+  graph :
+    image : neo4j
+    container_name : neo4jgraph
+    ports : 
+      - "7474:7474"
+      - "7687:7687"
+    
+      
+  domainexpert : 
+    build : ./domainexpert
+    container_name : domainexpert
+    ports : 
+      - "8089:8089"
+    depends_on :
+      - kafka
+      - eureka
+      - api-gateway
+  
+  googleapi :
+    build : ./GoogleApi
+    ports :
+      - "8081:8081"
+    depends_on :
+      - kafka
+      - eureka
+      - api-gateway
+  
+  crawler : 
+    container_name : crawler
+    build : ./Crawler
+    ports :
+      - "8070:8070"
+    depends_on : 
+      - kafka
+      - eureka
+      - api-gateway
+  
+  parser :
+    build : ./Parser
+    ports :
+      - "8060:8060"
+    depends_on :
+      - kafka
+      - eureka
+  
+  indexer :
+    build : ./Semantic-Search-Index
+    ports :
+      - "8085:8085"
+    depends_on :
+      - kafka
+      - eureka 
+  
+  conceptgraph :
+    build : ./neo4j-concept
+    ports :
+      - "8095:8095"
+    depends_on :
+      - kafka
+      - graph
+      - eureka
+  
+  intentgraph :
+    build : ./neo4j-intent
+    container_name : intentgraph
+    ports :
+      - "8096:8096"
+    depends_on :
+      - graph
+      - kafka
+      - api-gateway
+
+  spellchecker :
+    build : ./spell-checker
+    container_name : spellchecker
+    ports :
+      - "8051:8051"
+    depends_on :
+      - kafka
+      - api-gateway
+ 
+  pos_ner :
+    build : ./nlp
+    ports :
+      - "8052:8052"
+    depends_on :
+      - kafka
+      - eureka
+ 
+  stopwords :
+    build : ./StopWords
+    ports :
+      - "8053:8053"
+    depends_on :
+      - kafka
+      - eureka
+  
+  lemmatizer :
+    build : ./Lemmatizer
+    ports :
+      - "8054:8054"
+    depends_on :
+      - kafka
+      - eureka
+  
+  intentsearch:
+    build : ./IntentSearchService
+    container_name : intentsearch
+    ports :
+      - "8055:8055"
+    depends_on :
+      - kafka
+      - graph
+      - api-gateway
+
+  stomp:
+    build : ./stomp
+    container_name : stomp
+    ports :
+      - "3000:8088"
+    depends_on :
+      - kafka
+      - api-gateway

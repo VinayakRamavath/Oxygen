@@ -1,0 +1,38 @@
+
+<app-header></app-header>
+
+<div class="main" >
+             <mat-card class="card" >
+                <div fxLayout="column" fxLayoutAlign="center center">
+                  <mat-card-title>
+                      <h4 style="color:#3f51b5">Login</h4>
+                  </mat-card-title>
+                <div class="otherContent"  >
+                  <mat-form-field class="em" >
+                      <input matInput  placeholder="Email Address" [formControl]="loginForm.controls['email']">
+                      <mat-error *ngIf="loginForm.controls['email'].hasError('required') && loginForm.controls['email'].touched" class="alert alert-danger" >Please enter a cgi email.</mat-error>
+                  </mat-form-field>
+                
+                  <mat-form-field class="ps" >
+                      <input matInput  placeholder="Password" [formControl]="loginForm.controls['password']" [type]="hide ? 'text' : 'password'" >
+                      <mat-icon matSuffix id="password-hide" (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+                      <mat-error *ngIf="loginForm.controls['password'].hasError('required') && loginForm.controls['password'].touched" class="alert alert-danger">
+                          Please enter a password.
+                      </mat-error>
+                  </mat-form-field>
+                </div>
+                
+                <mat-error *ngIf="failedlogin" class="alert">Login failed. Please enter a valid email/password. </mat-error>
+                <br>
+                 
+                
+                <button type="submit" mat-raised-button color="primary" class="submit-button" fxFill (click)=" submitForm(loginForm.value)" [disabled]="!loginForm.valid">Submit</button>
+                
+               <a [routerLink]="['/register']"><button mat-button color="primary">Sign up</button></a>
+                
+                
+                </div>
+                </mat-card>
+      </div>
+
+

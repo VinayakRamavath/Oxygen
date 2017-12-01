@@ -1,0 +1,38 @@
+﻿
+
+
+<div fxLayout="column" fxLayoutAlign="center center">
+  <div class="otherContent">
+  
+  <mat-form-field class="form-field">
+      <input matInput placeholder="Name" [formControl]="registerForm.controls['name']">
+      <mat-error *ngIf="registerForm.controls['name'].hasError('required') && registerForm.controls['name'].touched" class="alert alert-danger">Please enter your name.</mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field class="form-field">
+      <input matInput matTooltip="Please enter a cgi email" placeholder="Email Address" [formControl]="registerForm.controls['email']">
+      <mat-error *ngIf="registerForm.controls['email'].hasError('required') && registerForm.controls['email'].touched" class="alert alert-danger">Please enter a valid cgi email.</mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field class="form-field">
+      <input matInput matTooltip="Password must be between 8 and 60 characters. It must contain atleast one uppercase, one lowercase, one digit, one special character" type="password" placeholder="Password" [formControl]="registerForm.controls['password']">
+
+      <mat-error  *ngIf="registerForm.controls['password'].hasError('required') && registerForm.controls['password'].touched" class="alert alert-danger">
+      Please enter a valid password.
+      </mat-error>
+  </mat-form-field>
+  <br>
+  <div *ngIf="registrationsuccessful">
+    <p class="success-alert">Your account has been created successfully.</p>
+</div>
+<div>
+<mat-error *ngIf="registrationfailed" class="alert alert-danger">User already exists.</mat-error>
+  <br>
+</div>
+  <button type="submit" mat-raised-button color="primary" fxFill (click)="submitForm(registerForm.value)" >Submit</button>
+</div>
+  
+<br>
+<!-- <a class="register" [routerLink]="['/login']"  style="text-align: center;">Go to Login Page</a> -->
+
+</div>

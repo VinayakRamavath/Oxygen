@@ -1,0 +1,82 @@
+
+.card{
+    background: #ecf0f1;
+    height: 350px;
+  
+   width: 100%;
+   
+  }
+  
+  .otherContent {
+    display: grid;
+  
+  }
+  
+  
+  .form-container{
+    display: flex;
+     flex-direction: column;
+     width: 100%;
+     text-align: center;
+  }
+  .form-container > * {
+    width: 100%;
+  }
+  
+  .container{
+    width: 200%;
+    margin: auto;
+    font-family: sans-serif;
+  }
+  mat-card-title.mat-card-title {
+    text-align: center;
+    color: rgba(107, 6, 6, 0.9);
+    
+  
+  }
+  
+  .btnsub {
+    text-align: center;
+    margin: auto;
+      width: 50% !important;
+      float: none !important;
+  }
+  
+  .register{
+    text-align: center;
+    text-decoration: none;
+    color: rgba(107, 6, 6, 0.9);
+  }
+  
+  .register:hover{
+    text-decoration: underline;
+  
+  }
+  mat-card.container.mat-card {
+    margin: 7% -46%;
+  }
+  a.register {
+    margin: 0px -54px;
+  }
+  
+  
+  button.btnsub.mat-raised-button {
+    color: white;
+  }
+  
+  button.btnsub.mat-raised-button {
+    background-color: rgba(107, 6, 6, 0.9);
+  }
+  
+  .main{
+    height: 350px;
+    width: 325px;
+    margin-left: 400px;
+    
+  }
+  
+  
+  .submit-button{
+    display: block;
+    margin-bottom: 5px;
+  }

@@ -1,0 +1,37 @@
+Node ID,Name,Parent Note ID,Parent Note Name,relation
+JAVA:INT:1,Intent,0,0,0
+JAVA:INT:2,Basic,JAVA:INT:1,Intent,sameas
+JAVA:INT:3,Tutorial,JAVA:INT:1,Intent,sameas
+JAVA:INT:4,Getting Started,JAVA:INT:1,Intent,sameas
+JAVA:INT:5,Example,JAVA:INT:1,Intent,sameas
+JAVA:INT:6,Complete Reference,JAVA:INT:1,Intent,sameas
+JAVA:INT:7,TroubleShoot,JAVA:INT:1,Intent,sameas
+JAVA:INT:8,basic,JAVA:INT:2,Basic,sameas
+JAVA:INT:9,what,JAVA:INT:2,Basic,sameas
+JAVA:INT:10,describe,JAVA:INT:2,Basic,sameas
+JAVA:INT:11,explain,JAVA:INT:2,Basic,sameas
+JAVA:INT:12,define,JAVA:INT:2,Basic,sameas
+JAVA:INT:13,why,JAVA:INT:2,Basic,sameas
+JAVA:INT:14,list,JAVA:INT:2,Basic,sameas
+JAVA:INT:15,how,JAVA:INT:2,Tutorial,sameas
+JAVA:INT:16,meaning,JAVA:INT:2,Basic,sameas
+JAVA:INT:17,fundamental,JAVA:INT:2,Basic,sameas
+JAVA:INT:18,elementary,JAVA:INT:2,Basic,sameas
+JAVA:INT:19,principle,JAVA:INT:2,Basic,sameas
+JAVA:INT:20,introduction,JAVA:INT:2,Basic,sameas
+JAVA:INT:21,tutorial,JAVA:INT:3,Tutorial,sameas
+JAVA:INT:22,tutorials,JAVA:INT:3,Tutorial,sameas
+JAVA:INT:23,learn,JAVA:INT:3,Tutorial,sameas
+JAVA:INT:24,course,JAVA:INT:3,Tutorial,sameas
+JAVA:INT:25,courses,JAVA:INT:3,Tutorial,sameas
+JAVA:INT:26,Getting Started,JAVA:INT:4,Getting Started,sameas
+JAVA:INT:27,install,JAVA:INT:4,Getting Started,sameas
+JAVA:INT:28,download,JAVA:INT:4,Getting Started,sameas
+JAVA:INT:29,example,JAVA:INT:5,Example,sameas
+JAVA:INT:30,code,JAVA:INT:5,Example,sameas
+JAVA:INT:31,solution,JAVA:INT:5,Example,sameas
+JAVA:INT:32,documentation of,JAVA:INT:6,Complete Reference,sameas
+JAVA:INT:33,complete reference of,JAVA:INT:6,Complete Reference,sameas
+JAVA:INT:34,troubleshoot,JAVA:INT:7,TroubleShoot,sameas
+JAVA:INT:35,rectify,JAVA:INT:7,TroubleShoot,sameas
+JAVA:INT:36,solve,JAVA:INT:7,TroubleShoot,sameas

@@ -1,0 +1,74 @@
+<div class="main">
+<mat-sidenav-container class="example-container" >
+  
+  <mat-sidenav #sidenav class="example-sidenav testclass" mode="push">
+      <!-- <img src="../../assets/angular2-logo.png" class="logo-img" alt="logo"/> -->
+      <i class="inline-icon material-icons">language</i>SEMENTIC SEARCH
+    
+    <hr>
+      <!-- <button mat-button class="button"><a [routerLink]="['/sidebar']" class="ahref"><i class="inline-icon material-icons">dashboard</i>Dashboard</a>
+      </button> -->
+      <!-- <button mat-button class="button">
+        <a [routerLink]="['/search']"  routerLinkActive="active" class="ahref"><i class="inline-icon material-icons">search</i>Search</a>
+      </button> -->
+      <!-- <button mat-button class="button" (click)="chatnav.open()">
+       <a class="ahref"><i class="inline-icon material-icons">chat</i>Chatbot</a>
+      </button> -->
+      <!-- <button mat-button class="button" (click)="chatnav.open()">
+          
+          <a class="ahref"><i class="inline-icon material-icons">account_circle</i>Admin</a>
+         </button> -->
+
+         <button mat-button class="button" (click)="chatnav.open()">
+            
+            <a class="ahref" [routerLink]="['/main']"><i class="material-icons">power_settings_new</i>Logout</a>
+           </button>
+         <!-- <button mat-button class="button" (click)="chatnav.open()">
+            
+            <a class="ahref"><i class="inline-icon material-icons">visibility</i>Domain Expert</a>
+           </button> -->
+  </mat-sidenav>
+
+    <button type="button" mat-button (click)="sidenav.open()" class="btn-color">
+      <i class="inline-icon material-icons">apps</i>
+    </button>
+
+    <div class="searchbar"><adminpanel-header></adminpanel-header></div>
+
+   
+  
+  
+
+
+   
+    
+  
+  </mat-sidenav-container>
+
+  <mat-sidenav #chatnav class="example-sidenav-right" mode="push" align="end" >
+      
+    
+       
+      <chat-dialog></chat-dialog>
+    </mat-sidenav>
+
+    <mat-sidenav #adminpanel class="example-sidenav-right" mode="push" align="end" >
+        
+        <adminpanel-header></adminpanel-header>
+      </mat-sidenav>
+
+
+    </div>
+
+
+
+    <!-- <mat-sidenav #adminlogin class="example-sidenav-right" mode="push" align="end" >
+        
+      
+         
+        <chat-dialog></chat-dialog>
+      </mat-sidenav> -->
+
+
+
+  

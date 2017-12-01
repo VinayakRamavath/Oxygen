@@ -1,0 +1,66 @@
+﻿﻿
+<div class="main" >
+<mat-tab-group>
+        
+             
+        <mat-tab  >
+                <ng-template mat-tab-label>
+                        <p class="label"><strong>Login</strong></p>
+                      </ng-template>
+             <mat-card class="card" >
+                <div fxLayout="column" fxLayoutAlign="center center">
+                  <mat-card-title>
+                      <h4 style="color:#3f51b5">Login</h4>
+                  </mat-card-title>
+                <div class="otherContent"  >
+                  <mat-form-field class="em" >
+                      <input matInput  placeholder="Email Address" [formControl]="loginForm.controls['email']">
+                      <mat-error *ngIf="loginForm.controls['email'].hasError('required') && loginForm.controls['email'].touched" class="alert alert-danger" >Please enter a cgi email.</mat-error>
+                  </mat-form-field>
+                
+                  <mat-form-field class="ps" >
+                      <input matInput  placeholder="Password" [formControl]="loginForm.controls['password']" [type]="hide ? 'text' : 'password'" >
+                      <mat-icon matSuffix id="password-hide" (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+                      <mat-error *ngIf="loginForm.controls['password'].hasError('required') && loginForm.controls['password'].touched" class="alert alert-danger">
+                          Please enter a password.
+                      </mat-error>
+                  </mat-form-field>
+                </div>
+                
+                <mat-error *ngIf="failedlogin" class="alert">Login failed. Please enter a valid email/password. </mat-error>
+                <br>
+                 
+                
+                <button type="submit" mat-raised-button color="primary" fxFill (click)=" submitForm(loginForm.value)" [disabled]="!loginForm.valid">Submit</button>
+                
+                
+                
+                </div>
+                <br>
+                <!-- <button mat-raised-button>
+                <a class="register" [routerLink]="['/register']" style="text-align: center;">Sign up</a></button> -->
+                </mat-card>
+                </mat-tab>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <mat-tab label="Register">
+                <ng-template mat-tab-label>
+                        <p class="label"><strong>Register</strong></p>
+                      </ng-template>
+            <app-register></app-register></mat-tab>
+      </mat-tab-group>
+      </div>
+

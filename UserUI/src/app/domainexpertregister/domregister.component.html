@@ -1,0 +1,38 @@
+
+
+  <mat-card class="container" style="width:40%;">
+      <mat-card-content>
+
+          <h2 style="text-align: center;">Sign Up</h2>
+
+
+
+              <div class="form-container">
+                  <mat-form-field  >
+                    <input matInput #firstName placeholder="First name"  required>
+                  </mat-form-field>
+                  <mat-form-field matInput [hideRequiredMarker]="true">
+                      <input #lastName matInput placeholder="Last name"  required>
+                      <!-- <mat-error *ngIf="nameValidator.invalid">{{getNameErrorMessage()}}</mat-error> -->
+                    </mat-form-field>
+                  <mat-form-field >
+                      <input #emailSignup matInput  placeholder="Email"  required>
+                      <!-- <mat-error *ngIf="emailSignupValidator.invalid">{{getEmailSignupErrorMessage()}}</mat-error> -->
+                  </mat-form-field>
+                  <mat-form-field >
+                        <input #userName matInput  placeholder="Username"  required>
+                        <!-- <mat-error *ngIf="usernameValidator.invalid">{{getUsernameErrorMessage()}}</mat-error> -->
+                    </mat-form-field>
+                  <mat-form-field >
+                      <input #passwordSignup matInput placeholder="Password" [type]="hide ? 'password' : 'text'" required>
+                      <mat-icon matSuffix id="password-hide" (click)="signUphide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+                      <!-- <mat-error *ngIf="passwordValidator.invalid">{{getPasswordErrorMessage()}}</mat-error> -->
+                  </mat-form-field>
+
+                  <mat-checkbox>I accept all the terms and conditions</mat-checkbox>
+                  <button mat-raised-button color="warn" style="width: 50%; margin: auto;margin-top:30px;">Submit</button>
+                </div>
+
+
+        </mat-card-content>
+        </mat-card>

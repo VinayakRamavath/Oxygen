@@ -1,0 +1,16 @@
+172.23.238.172:8080/v1/semantic/sendurls
+{
+
+}
+
+Micro Service Kafka Documentation
+
+Publishing Data Into Kafka
+{
+   String
+}
+
+Consuming Data Into Kafka
+{
+   NA
+}

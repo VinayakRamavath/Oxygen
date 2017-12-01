@@ -1,0 +1,58 @@
+body {
+  background: grey;
+}
+
+.window {
+  width: 80%;
+  height: 85vh;
+  bottom: 0;
+  position: fixed;
+  margin-left: 9%;
+  background: white;
+  border-left: .4rem solid white;
+  border-right: .4rem solid white;
+  border-top: 1.8rem solid white;
+  border-top-left-radius: .5rem;
+  border-top-right-radius: .5rem;
+}
+
+.window .bar {
+  position: fixed;
+  margin-top: -1.3rem;
+  margin-left: .2rem;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.window .bubble {
+  width: .9rem;
+  height: .9rem;
+  border-radius: 100rem;
+  display: inline-block;
+  margin-right: .3rem;
+  cursor: pointer;
+}
+
+.window .bubble:hover {
+  opacity: .6;
+}
+
+.window .bar .red {
+  background: #ea423f;
+}
+
+.window .bar .yellow {
+  background: #efb62c;
+}
+
+.window .bar .green {
+  background: #7ab300;
+}
+
+.window iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}

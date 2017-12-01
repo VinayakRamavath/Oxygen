@@ -1,0 +1,84 @@
+
+
+.input-group {
+    width: 80%;
+    padding-top: 100px;
+    padding-left: 0px;
+    margin: auto;
+    margin-top: 100px;
+}
+.dropdown {
+    padding-top: 100px;
+    margin-left: 170px;
+    margin-top: 100px;
+    width: 50px;
+ }
+
+ #link{
+     margin-left: 170px;
+     margin-top: 30px;
+ }
+ #drop{
+    margin-left: 170px;
+    margin-top: 0px;
+    width: 50px;
+ }
+
+ /* .searchbar {
+    background-image: url("../../assets/lock_bg.jpg");
+    background-color: #cccccc!important;
+    height: 560px;
+} */
+
+.searchbar {
+    display: block;
+    position: relative;
+  }
+  
+  .searchbar::after {
+    content: "";
+    /* background: url("../../assets/lock_bg.jpg"); */
+    opacity: 0.7;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1; 
+    height: 620px;
+  }
+
+
+  .fontcolor{
+      color: white;
+      
+      
+  }
+ 
+
+  .buttoncolor{
+    background-color:#032030 ;
+  }
+
+  .border{
+    border: 2px solid white;
+    border-radius: 12px;
+    padding: 10px;
+    width: 500px;
+    
+  }
+
+  .cont-height{
+      height: 20px;
+  }
+
+
+  .title{
+    color: white;
+    margin-left: 360px;
+    margin-top: 140px;
+    font-weight: bold;
+  }
+
+
+

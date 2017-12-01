@@ -1,0 +1,306 @@
+.example-container {
+  width: 100%;
+  height: 650px;
+  background-color: transparent;
+ 
+}
+
+.example-sidenav {
+  padding: 20px;
+  width: 250px;
+  height: 100%;
+}
+
+.example-sidenav-right {
+  width: 350px;
+  background-color:transparent;
+  
+}
+
+.testclass {
+  background-color: transparent;
+}
+
+.testclass:before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0;
+  top: 0; bottom: 0;
+}
+
+.example-fill-remaining-space{
+  flex:1 1 auto;
+}
+
+.example-full-width{
+width:420px;
+}
+.ahref{
+    font-size: 14px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+.inline-icon {
+  font-size: 20px !important;
+  padding: 0 3px 0 3px;
+}
+
+.button{
+   padding: 5px 5px;
+   display: block;
+   position: relative;
+   
+}
+
+.main{
+
+  height: 100%;
+  background-color: transparent;
+
+}
+.h4-style{
+   position: relative;
+   padding-left: 10px;
+   color: black;
+   display: inline;
+}
+
+.h4-margin{
+ margin-top: 10px;
+}
+
+.logo-img{
+  width: 42px;
+  position: relative; 
+  display: inline;
+}
+
+.btn-color1{
+  color: #032030;
+ 
+}
+
+
+
+
+
+.example-fill-remaining-space{
+  flex:1 1 auto;
+}
+
+a{
+
+    font-size: 14px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.inline-icon {
+  font-size: 20px !important;
+  padding: 0 3px 0 3px;
+}
+
+.mat-button{
+   padding: 5px 5px;
+   margin-right: 10px;
+}
+
+
+.btn-color{
+  color: white;
+  
+  
+}
+
+.btn-color2{
+  background-color: transparent;
+  
+}
+
+.example-sidenav-right1{
+  width: 1000px;
+  background-color:transparent;
+}
+
+.example-sidenav-right2{
+  width: 1000px;
+  background-color:transparent;
+}
+
+.loader{
+  margin-top: 0px;
+  width: 100%;
+}
+
+.fieldcolor{
+font-size: 18px;
+  background-color: transparent;
+}
+
+
+.btn-place{
+  float: right;
+}
+
+#title{
+  color:#2c47ab;
+}
+
+#url{
+  color:#306723;
+}
+
+.sticky{
+  position: sticky;
+  width:100%;
+  z-index: 1;
+  
+}
+
+.relative{
+  position:relative;
+  
+}
+
+
+.stickyy{
+  position: relative;
+
+  width:100%;
+}
+
+
+
+#red{
+color:#e6643b;
+}
+
+.correctedquery{
+  color:#2c47ab;
+    font-size:16px;
+    padding-right: 4px;
+  }
+
+  .logo p {
+    display: inline-block;
+    vertical-align: top;
+    overflow: hidden;
+}
+
+.cards{
+  cursor: pointer;
+  height: 200px;
+  width:300px;
+  display: inline-block;
+margin-left: 30px;
+margin-bottom: 30px;
+border: 0.5px solid #737373;
+}
+.allcards{
+  margin-left: 100px;
+}
+.popular{
+  margin-left:445px;
+}
+
+.button{
+  width: 100%;
+}
+.interface{
+
+background-image: url("../../assets/interface.png");
+height: 90%;
+width:100%;
+background-size: 80% 100%;
+border:1px solid #d3d3d3;
+}
+
+.class{
+  
+  background-image: url("../../assets/class.png");
+  height: 90%;
+  width:100%;
+  background-size: 80% 100%;
+  border:1px solid #d3d3d3;
+  }
+
+  .encapsulation{
+    
+    background-image: url("../../assets/encapsulation.png");
+    height: 90%;
+    width:100%;
+    background-size: 80% 100%;
+    border:1px solid #d3d3d3;
+    }
+
+    .investment{
+      
+      background-image: url("../../assets/investment.png");
+      height: 90%;
+      width:100%;
+      background-size: 80% 100%;
+      border:1px solid #d3d3d3;
+      }
+
+      .inflation{
+        
+        background-image: url("../../assets/inflation.png");
+        height: 90%;
+        width:100%;
+        background-size: 80% 100%;
+        border:1px solid #d3d3d3;
+        }
+
+    .searchin{
+      margin-left: 100px;
+      margin-top: 30px;
+    }
+
+    .backgroundimage{
+      margin-left: 20px;
+      margin-top:35px;
+    }
+    .backgroundimagee{
+      margin-left: 20px;
+      margin-top:45px;
+    }
+    .backgroundimage1{
+
+      height:60px;
+       width:100px;
+    }
+    .backgroundimage2{
+      
+            height:35px;
+             width:40px;
+          }
+
+  .noresults{
+
+    float: right;
+  }
+  
+  .conceptintent{
+    color:#2c47ab;
+  }
+  .conceptintent p{
+    margin-bottom: 0px;
+  }
+  .concept{
+    display: inline;
+  }
+.intent{
+      display: inline;
+}
+
+  .confidence{
+    display: inline;
+  }
+
+  .conceptcolor{
+    color: rgb(118, 118, 255);
+    font-weight: 500;
+    
+  }

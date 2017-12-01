@@ -1,0 +1,47 @@
+/* .example-card {
+    width: 400px;
+  }
+  
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+
+  .card1{
+      
+        height: 200px;
+        width:200px;
+        text-align: center;
+        float: left;
+        margin-top: 200px;
+        margin-left: 200px;
+        background-color:transparent;
+
+        border: 3px;
+  }
+
+  .domainicon{
+        height: 130px;
+        width: 130px;
+        margin-top: 10px;
+        
+  }
+
+  .searchbar{
+    margin-left: 9%;
+    margin-top: 90px;
+  }
+
+  
+
+ 
+  */
+
+  .sidebarcontainer{
+    height: 100%;
+    width: 100%;
+    /* background-position: center center;
+    background-repeat:  no-repeat;
+    background-attachment: fixed;
+    background-size:  cover; */
+  }

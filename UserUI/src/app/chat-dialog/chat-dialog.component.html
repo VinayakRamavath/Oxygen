@@ -1,0 +1,131 @@
+<!-- <div class="column column-50 box">
+
+  <div *ngFor="let message of messages | async">
+
+    <div class="message" [ngClass]="{ 'from': message.sentBy === 'bot',
+                                    'to':   message.sentBy === 'user' }">
+      {{ message.content }}
+    </div>
+
+  </div>
+
+  <div class="divititis">
+
+    <mat-form-field>
+
+      <input matInput #formValue placeholder="Your message"  (keyup.enter)="sendMessage(formValue.value)" type="text">
+
+    </mat-form-field>
+
+    <button mat-button (click)="startRecognition()">
+      <i class="material-icons">settings_voice</i>
+    </button>
+    
+    <button (click)="sendMessage(formValue.value)" class="btn btn-danger button-send"><i class="material-icons">send</i></button>
+  </div>
+</div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="live-chat">
+  
+  <div class="header-color">
+  <header class="clearfix">
+   
+    <h4 class="chatbot"><b>Vanessa</b></h4><i class="material-icons chaticon i">chat</i>
+
+    <span class="chat-message-counter">J</span>
+
+  </header>
+</div>
+
+  <div class="chat">
+    
+    <div class="chat-history">
+      
+      <div class="chat-message clearfix">
+        
+       
+
+        <div class="chat-message-content clearfix">
+          
+          
+
+         
+
+          <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, explicabo quasi ratione odio dolorum harum.</p> -->
+
+        </div> 
+        <div *ngFor="let message of messages | async">
+
+          <br>
+            
+            <div class="message" [ngClass]="{ 'from': message.sentBy === 'bot',
+                                            'to':   message.sentBy === 'user' }">
+              {{ message.content }}
+
+              
+              
+
+            </div>
+
+            <hr>
+        
+          </div>
+
+      </div> 
+
+ 
+
+    </div> 
+
+    <hr>
+
+    <div class="user-query">
+    <form action="#" method="post">
+
+      <fieldset>
+        
+        <!-- <input type="text" placeholder="Type your message…" autofocus>
+        <input type="hidden"> -->
+
+
+        <div class="divititis">
+          
+              <mat-form-field class="sendquery">
+          
+                <input matInput #formValue placeholder="Your message"  (keyup.enter)="sendMessage(formValue.value)" type="text">
+          
+              </mat-form-field>
+          
+              <!-- <button mat-button (click)="startRecognition()" class="voice">
+                <i class="iconsize material-icons md-18">settings_voice</i>
+              </button> -->
+              <button (click)="startRecognition()" class="btn button-send btn-color"><i class="iconsize material-icons md-18">settings_voice</i></button>
+              <!-- <button (click)="sendMessage(formValue.value)" class="btn button-send btn-color"><i class="material-icons md-18">send</i></button> -->
+              
+            </div>
+
+      </fieldset>
+
+    </form>
+  </div>
+
+  </div> 
+
+</div> 
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+
+

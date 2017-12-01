@@ -1,0 +1,14 @@
+.form-container{
+  display: flex;
+  flex-direction: column;
+
+
+}
+.email1 {
+margin-right: 100px;
+}
+
+.icon-email {
+  margin-left: 10px;
+}
+

@@ -1,0 +1,59 @@
+.example-card {
+    width: 400px;
+  }
+.card{
+  
+  background:transparent;
+  width: 250px;
+  height: 160px;
+  display: inline-block;
+  margin-left: 20px;
+  border: 0.5px solid #737373;
+}
+.logo{
+  height: 200px;
+  width:200px;
+  background-image: url(../../assets/finallogo.png);
+  background-size: 200px 200px;
+  background-repeat: no-repeat;
+  margin-left: 530px;
+display: block;
+}
+#heading{
+  margin-left: 500px;
+  font-size: 35px;
+}
+
+.footer{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color:#e3e3e3;
+  text-align: center;
+  padding-top:10px;
+}
+
+
+.domain-logo{
+  height: 200px;
+  width:200px;
+  background-image: url(../../assets/java.png);
+  background-size: 200px 200px;
+  background-repeat: no-repeat;
+}
+ 
+img{
+  background: transparent;
+  z-index: -1000px;
+  padding-top:10px;
+  margin-left: 50px;
+  width: 100px;
+  height: 100px;
+}
+
+h4{
+  color:black;
+  text-align: center;
+}
+

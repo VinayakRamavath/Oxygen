@@ -1,0 +1,47 @@
+
+<app-header></app-header>
+
+<div class="main" >
+<mat-tab-group>
+    <mat-tab label="Login">
+             <mat-card class="card" >
+                <div fxLayout="column" fxLayoutAlign="center center">
+                 
+                <div class="otherContent"  >
+                  <mat-form-field class="em" class="form-field">
+                      <input matInput  placeholder="Email Address" [formControl]="loginForm.controls['email']">
+                      <mat-error *ngIf="loginForm.controls['email'].hasError('required') && loginForm.controls['email'].touched" class="alert alert-danger" >Please enter a cgi email.</mat-error>
+                  </mat-form-field>
+                <br>
+                  <mat-form-field class="ps" class="form-field" >
+                      <input matInput  placeholder="Password" [formControl]="loginForm.controls['password']" [type]="hide ? 'text' : 'password'" >
+                      <mat-icon matSuffix id="password-hide" (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+                      <mat-error *ngIf="loginForm.controls['password'].hasError('required') && loginForm.controls['password'].touched" class="alert alert-danger">
+                          Please enter a password.
+                      </mat-error>
+                  </mat-form-field>
+                  <br>
+                </div>
+                
+                <mat-error *ngIf="failedlogin" class="alert">Login failed. Please enter a valid email/password. </mat-error>
+                <br>
+                 
+                
+                <button type="submit" mat-raised-button color="primary" class="submit-button" fxFill (click)=" submitForm(loginForm.value)" [disabled]="!loginForm.valid">Submit</button>
+                <br>
+              <a href="#">Forgot Password ?</a>
+                
+                </div>
+                </mat-card>
+      
+    </mat-tab>
+    <mat-tab label="Register">
+        <mat-card class="card" >
+      <app-register></app-register>
+        </mat-card>
+    </mat-tab>
+  </mat-tab-group>
+</div><!--end of main-->
+
+
+

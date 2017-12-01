@@ -1,0 +1,23 @@
+
+<mat-toolbar id="toolbar" color="primary">
+    <a [routerLink]="['']"><i class="inline-icon material-icons">language</i>SEMANTIC SEARCH</a>
+    <!-- This fills the remaining space of the current row -->
+  <span class="example-fill-remaining-space"></span>
+  <button mat-button>
+      <a [routerLink]="['/final']"  routerLinkActive="active"><i class="inline-icon material-icons">home</i> Home</a>
+    </button>
+  <!-- <button mat-button>
+    <a [routerLink]="['/main']"  routerLinkActive="active"><i class="inline-icon material-icons">search</i>Search</a>
+  </button> -->
+  <button mat-button (click)=chatnav.open()>
+  <a><i class="inline-icon material-icons">chat</i>Chatbot</a>
+</button>
+<button mat-button >
+  <a [routerLink]="['/login']"><i class="inline-icon material-icons">account_circle</i>Login</a>
+</button>
+
+  </mat-toolbar> 
+  <mat-sidenav #chatnav class="example-sidenav-right" mode="push" align="end">
+    
+    <chat-dialog></chat-dialog>
+  </mat-sidenav>

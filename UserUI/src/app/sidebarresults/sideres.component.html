@@ -1,0 +1,131 @@
+<div class="sticky">
+    <app-header></app-header>
+</div><!--end of stickyy -->
+
+<div class="stickyy">
+    <mat-accordion>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                        <div *ngIf="this.flagJava" class="backgroundimagee">
+                                <img class="backgroundimage2" mat-card-image src="data:image/png;base64,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"  alt="java">
+                          </div>
+                          <div  *ngIf="this.flagInvest" class="backgroundimage">
+                                <img class="backgroundimage1" mat-card-image src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/CGI_logo.svg/1200px-CGI_logo.svg.png" alt="cgi">
+                          </div>
+                          <div class="searchin">
+                                Search in {{this.domain}}
+                              </div>
+                          
+                </mat-panel-title>
+                
+              </mat-expansion-panel-header>
+
+              <div class="container">
+                    <form role="search">
+                      <div class="input-group add-on">
+                        
+                          <form class="example-form font-color">
+                              <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Search" (keyup.enter)="send(sendValue.value)" #sendValue value={{concept}} class="fieldcolor">
+                                
+                            </mat-form-field>
+                            
+                                <div class="input-group-btn btn-place">
+                                  <button mat-raised-button color="primary" type="button" (click)="send(sendValue.value)" class="btn-color">
+                                    Search
+                                  </button>
+                                </div>  
+                            </form>
+                      </div>
+                    </form>
+                  </div>
+            </mat-expansion-panel>
+           
+          </mat-accordion>
+                <mat-progress-bar mode="indeterminate" *ngIf="showLoader" class="loader"></mat-progress-bar>
+           
+</div>
+            <div class="relative">
+                <div class="container">
+                    <div class="col-sm-9 results">
+                        <div class="logo">
+                            <br>
+                        <p id="red">{{text}}</p>
+                  <p class="correctedquery"> <em><strong>{{correctedquery}}</strong></em></p>
+                  <p *ngIf="respTime"  class="noresults">{{noresults}} in ({{responseTime}}) seconds</p>
+                </div>
+                    
+                    <div *ngFor="let item of serverResponse">
+                        <mat-card class="mat">
+                        <a href="{{item.urlFromGoogle.name}}" target="_blank"><h4 id="title">{{item.urlFromGoogle.title}}</h4></a>
+                        <a href="{{item.urlFromGoogle.name}}" target="_blank" ><h5 id="url" >{{item.urlFromGoogle.name}}</h5></a>
+                        <h5>{{item.urlFromGoogle.snippet}}</h5>
+                        <div class="conceptintent">
+                            <p class="concept"><em>concept</em> : {{item.concept2.name}} · </p>
+                            <p class="intent"><em>intent</em> : {{intent}}</p>
+                            <!-- <p class="confidence"><em>confidence score</em> : {{item.concept2.name}}</p> -->
+                        </div>
+                    </mat-card>
+                    <br>
+                    </div>
+
+                    <!-- <div >
+                        <mat-card class="mat">
+                        <a href="#" target="_blank">oiuhlkhjjjjjjjjjjjjjjjjjjjjjjjjjj <h4 id="title"></h4></a>
+                        <a href="#" target="_blank" >piojlihjilh<h5 id="url" ></h5></a>
+                        <h5>kjbhjkbjk</h5>
+                    <div class="conceptintent">
+                        <p class="concept">concept: </p>
+                   
+                    
+                        <p class="intent">intent: </p>
+                    
+                       
+                        <p class="confidence">confidence score: </p>
+                   </div>
+                    
+                    </mat-card>
+                    <br>
+                    </div> -->
+
+
+
+                </div><!--end of col-sm-9-->
+                </div><!--end of container-->
+            </div>
+
+            <div *ngIf="searchdone" class="container allcards">
+
+            <h4 class="popular">Popular Searches</h4>
+            <br>
+            <br>
+            <div  *ngIf="this.flagJava">
+            <mat-card class="cards" (click)="send('interface')">
+                Interface
+                <div class="interface"></div>
+            </mat-card>
+            <mat-card class="cards" (click)="send('class')">
+                    class
+                    <div class="class"></div>
+                </mat-card>
+                <mat-card class="cards" (click)="send('encapsulation')">
+                        Encapsulation
+                        <div class="encapsulation"></div>
+                    </mat-card>
+                </div>
+                <div  *ngIf="this.flagInvest">
+                    <mat-card class="cards" (click)="send('investment')">
+                        investment
+                        <div class="investment"></div>
+                    </mat-card>
+                    <mat-card class="cards" (click)="send('inflation')">
+                            Inflation
+                            <div class="inflation"></div>
+                        </mat-card>
+                        <mat-card class="cards" (click)="send('equity')">
+                            Equity
+                                <div class="encapsulation"></div>
+                            </mat-card>
+                        </div>
+        </div><!--end of searchdone-->

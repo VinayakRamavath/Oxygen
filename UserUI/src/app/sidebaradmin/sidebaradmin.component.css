@@ -1,0 +1,97 @@
+.example-container {
+  width: 100%;
+  height: 650px;
+  background-color: transparent;
+ 
+}
+
+.example-sidenav {
+  padding: 20px;
+  width: 250px;
+  height: 100%;
+}
+.main{
+  height: 100%;
+  width: 100%;
+}
+
+.example-sidenav-right {
+  width: 350px;
+  background-color:transparent;
+  
+}
+
+.testclass {
+  /* background:url(../assets/sidedropdown.jpg); */
+  /* background-size: 190%; */
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  color:white;
+  background-color: transparent;
+  
+  
+}
+.testclass:before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0;
+  top: 0; bottom: 0;
+  
+  opacity: 0.7;
+}
+
+.example-fill-remaining-space{
+  flex:1 1 auto;
+}
+
+.ahref{
+    color: white;
+    font-size: 14px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+
+.inline-icon {
+  font-size: 20px !important;
+  padding: 0 3px 0 3px;
+}
+
+.button{
+   padding: 5px 5px;
+   display: block;
+   width: 100%;
+   position: relative;
+   
+}
+
+.h4-style{
+   position: relative;
+   padding-left: 10px;
+   color: black;
+   display: inline;
+}
+
+.h4-margin{
+ margin-top: 10px;
+}
+
+.logo-img{
+  width: 42px;
+  position: relative;
+  display: inline;
+}
+
+.searchbar{
+  margin-left: 9%;
+  margin-top: 90px;
+}
+
+.btn-color{
+  color: white;
+}
+
+i{
+  color:white;
+}

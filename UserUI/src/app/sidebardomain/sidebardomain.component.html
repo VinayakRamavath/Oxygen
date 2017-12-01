@@ -1,0 +1,146 @@
+
+<mat-toolbar id="toolbar" color="primary">
+    <a [routerLink]="['']"><i class="inline-icon material-icons">language</i>SEMENTIC SEARCH</a>
+
+  <span class="example-fill-remaining-space"></span>
+
+  <button mat-button>
+      <a [routerLink]="['/final']"  routerLinkActive="active"><i class="inline-icon material-icons">home</i> Home</a>
+    </button>
+    <button mat-button (click)=chatnav.open()>
+        <a><i class="inline-icon material-icons">chat</i>Chatbot</a>
+      </button>
+<button mat-button >
+  <a [routerLink]="['/login']"><i class="inline-icon material-icons">account_circle</i>Logout</a>
+</button>
+
+  </mat-toolbar> 
+
+ 
+      <mat-sidenav #chatnav class="example-sidenav-right" mode="push" align="end">
+        
+        <div class="index"><chat-dialog></chat-dialog></div>
+      </mat-sidenav>
+    
+
+
+
+<mat-progress-bar mode="indeterminate" *ngIf="showLoader" class="loader"></mat-progress-bar>
+    
+ 
+  
+     
+
+      <div class="searchbar">
+      
+      
+      <br>
+      <div class="container">
+      <div class="row">
+              
+              <div class="col-sm-6">
+                <form role="search">
+                  <div class="input-group add-on">
+                    <mat-card>
+
+                         <mat-card-subtitle><strong>Enter Domain and Concepts</strong></mat-card-subtitle>
+                      
+                      <form class="example-form font-color">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Domain" #sendValue class="fieldcolor">
+                          </mat-form-field>
+                          
+      
+                          <mat-form-field class="example-full-width">
+                              <input matInput maxlength="256" placeholder="Concept" #sendIntent class="fieldcolor">
+
+    <mat-hint align="start"><strong>eg: class,interface</strong> </mat-hint>
+    <mat-hint align="end">{{sendIntent.value.length}} / 256</mat-hint>
+    
+                            </mat-form-field>
+      
+                        <div>
+                            <br>
+                        <button mat-raised-button color="primary" type="button" (click)="onClick(sendValue.value,sendIntent.value)" class="btn-color3">
+                            Post
+                          </button>
+                          </div>
+                          <div *ngIf="registrationsuccessful">
+                          <br>
+                       
+                        <p class="success-alert"> {{this.alert}}</p>
+                      </div>
+                        </form>
+                      </mat-card>
+                      <br>
+                      <mat-accordion>
+                        <mat-expansion-panel>
+                          <mat-expansion-panel-header>
+                            <mat-panel-title>
+                              Add custom url
+                            </mat-panel-title>
+                          </mat-expansion-panel-header>
+                      
+                          <mat-form-field >
+                            <input matInput #sendomain placeholder="Domain">
+                          </mat-form-field>
+                      
+                          <mat-form-field >
+                            <input matInput #sendconcept placeholder="Concept">
+                          </mat-form-field>
+
+                          <mat-form-field class="example-full-width90">
+                            <input matInput placeholder="Enter Url" #sendurl class="fieldcolor">
+                          </mat-form-field>
+                          <br>
+                          <button mat-raised-button color="primary" type="button" (click)="onClickUrl(sendomain.value,sendconcept.value,sendurl.value)">
+                              Post
+                            </button>
+                            <div *ngIf="registrationsuccessful1">
+                              <br>
+                            <p class="success-alert"> {{this.alert1}}</p>
+                          </div>
+                        </mat-expansion-panel>
+                      </mat-accordion>
+
+
+                  </div>
+                </form>
+       
+      
+              
+  
+              
+                  
+      
+      
+              </div>
+              
+
+
+
+              <div class="domain" *ngIf="java">
+                  <h4 class="domtitle">Java Concepts already populated</h4>
+                  <div *ngFor="let item of javaconcepts">
+                  
+                  <div class="boxes"><h5>{{item.name}}</h5></div>
+                </div>
+              </div>
+
+              <div class="domain" *ngIf="finance">
+                  <h4 class="domtitle">Finance Concepts already populated</h4>
+                  <div *ngFor="let item of financeconcepts">
+                  
+                  <div class="boxes"><h5>{{item.name}}</h5></div>
+                </div>
+              </div>
+
+            </div>
+      
+           
+            
+            
+          </div><!--end of container-->
+      
+      </div><!--end of searchbar-->
+      
