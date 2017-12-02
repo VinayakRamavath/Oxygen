@@ -41,9 +41,9 @@ export class SigninComponent {
 
   }
 
-  ngOnInit() {
-    window.history.pushState( {} , 'Home', '/final' );
-    window.history.pushState( {} , 'login', '/login' ); }
+//   ngOnInit() {
+//     window.history.pushState( {} , 'Home', '/final' );
+//     window.history.pushState( {} , 'login', '/login' ); }
 
   submitForm(value: any) {
       this._authenticationservice.login(value)
@@ -62,6 +62,8 @@ export class SigninComponent {
       );
 
   }
+
+ 
 
 
   getDetails() {

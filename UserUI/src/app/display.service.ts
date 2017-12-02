@@ -28,20 +28,6 @@ export class DisplayService{
                             (res)=>res.text(),
                               (err)=>err.json())
       }
-      posturl(domain:any,concept:any,url:any): Promise<void> {
-        console.log("hi")
-        console.log(domain)
-        console.log(concept)
-         return this.http.post('http://13.126.183.132:5000/crawler/v1/semanticsearch/crawlerservice/posturl',JSON.stringify({
-            domain:domain,
-            concept:concept,
-            url:url
-         }),{headers: this.headers})
-                        .toPromise()
-                        .then(
-                            (res)=>res.text(),
-                              (err)=>err.json())
-      }
 
     postquery1(domain:any,concept:any): Promise<void> {
         console.log("hi")
@@ -110,4 +96,20 @@ export class DisplayService{
         .then((res)=>res.text(),
               (err)=>err.json())
     }
+
+
+    posturl(domain:any,concept:any,url:any): Promise<void> {
+        console.log("hi")
+        console.log(domain)
+        console.log(concept)
+         return this.http.post('http://13.126.183.132:5000/crawler/v1/semanticsearch/crawlerservice/posturl',JSON.stringify({
+            domain:domain,
+            concept:concept,
+            url:url
+         }),{headers: this.headers})
+                        .toPromise()
+                        .then(
+                            (res)=>res.text(),
+                              (err)=>err.json())
+      }
 }

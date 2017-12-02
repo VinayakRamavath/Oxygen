@@ -12,8 +12,8 @@
   <button mat-button (click)=chatnav.open()>
   <a><i class="inline-icon material-icons">chat</i>Chatbot</a>
 </button>
-<button mat-button >
-  <a [routerLink]="['/login']"><i class="inline-icon material-icons">account_circle</i>Login</a>
+<button mat-button  (click)=checkforlogin()>
+  <i class="inline-icon material-icons">account_circle</i>Login
 </button>
 
   </mat-toolbar> 

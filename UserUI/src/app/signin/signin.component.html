@@ -14,7 +14,7 @@
                   </mat-form-field>
                 <br>
                   <mat-form-field class="ps" class="form-field" >
-                      <input matInput  placeholder="Password" [formControl]="loginForm.controls['password']" [type]="hide ? 'text' : 'password'" >
+                      <input matInput  placeholder="Password" (keyup.enter)="submitForm(loginForm.value)" [formControl]="loginForm.controls['password']" [type]="hide ? 'text' : 'password'" >
                       <mat-icon matSuffix id="password-hide" (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
                       <mat-error *ngIf="loginForm.controls['password'].hasError('required') && loginForm.controls['password'].touched" class="alert alert-danger">
                           Please enter a password.

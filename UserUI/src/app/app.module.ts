@@ -39,7 +39,8 @@ import { SigninComponent } from './signin/signin.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { PostgraphadminComponent } from './postgraphadmin/postgraphadmin.component';
-
+import { AuthGuardService } from './auth/auth-guard.service';
+import {MatSelectModule} from '@angular/material/select';
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,7 +73,7 @@ import { PostgraphadminComponent } from './postgraphadmin/postgraphadmin.compone
     BrowserAnimationsModule,
     BusyModule,
     MatProgressBarModule,
-    
+    MatSelectModule,
     MatSnackBarModule,
     MatExpansionModule,
     BrowserModule,
@@ -103,7 +104,9 @@ import { PostgraphadminComponent } from './postgraphadmin/postgraphadmin.compone
       { path: 'admin', component: AdminpanelComponent },
       { path: 'sidebaradmin', component: SidebarAdminComponent },
       { path: 'register', component: RegisterComponent },
-      { path: 'sidebardomain', component: SidebarDomainComponent },
+      { path: 'sidebardomain', component: SidebarDomainComponent
+      ,canActivate: [AuthGuardService] 
+    },
       { path: 'register', component: RegisterComponent },
       { path: 'chat', component: ChatDialogComponent },
       { path: 'login', component: SigninComponent },
@@ -112,7 +115,7 @@ import { PostgraphadminComponent } from './postgraphadmin/postgraphadmin.compone
     ])
   ],
   providers: [DisplayService,AudioService,SocketService,StompService,
-    UserService,AuthenticationService,UserDetailsService,LinksService],
+    UserService,AuthenticationService,UserDetailsService,LinksService,AuthGuardService],
   bootstrap: [AppComponent],
   exports:[RouterModule]
 })

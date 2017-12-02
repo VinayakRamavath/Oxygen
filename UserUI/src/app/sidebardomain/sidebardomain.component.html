@@ -10,11 +10,12 @@
     <button mat-button (click)=chatnav.open()>
         <a><i class="inline-icon material-icons">chat</i>Chatbot</a>
       </button>
-<button mat-button >
-  <a [routerLink]="['/login']"><i class="inline-icon material-icons">account_circle</i>Logout</a>
+<button mat-button (click)=logout() ><i class="inline-icon material-icons">account_circle</i>
+  Logout
 </button>
 
-  </mat-toolbar> 
+  
+  </mat-toolbar>
 
  
       <mat-sidenav #chatnav class="example-sidenav-right" mode="push" align="end">
@@ -27,21 +28,19 @@
 
 <mat-progress-bar mode="indeterminate" *ngIf="showLoader" class="loader"></mat-progress-bar>
     
- 
-  
-     
-
       <div class="searchbar">
       
       
       <br>
       <div class="container">
       <div class="row">
-              
               <div class="col-sm-6">
                 <form role="search">
                   <div class="input-group add-on">
+
+              <h5>Hello {{name}} !</h5>
                     <mat-card>
+                          
 
                          <mat-card-subtitle><strong>Enter Domain and Concepts</strong></mat-card-subtitle>
                       

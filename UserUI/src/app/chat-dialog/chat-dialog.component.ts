@@ -46,6 +46,7 @@ export class ChatDialogComponent implements OnInit {
   i='1';
   message: string;
 message2:string;
+inputmessage;
   constructor(public chat: ChatService, private service: AudioService) {}
 
   
@@ -102,6 +103,7 @@ this.assertMe=false;
     this.message = formValue;
     console.log(this.message);
     this.chat.converse(this.message);
+    this.inputmessage=" ";
   }
  
 
@@ -140,6 +142,7 @@ this.assertMe=false;
         console.log(this.vartext);
       this.sendMessage(this.vartext);
       this.assertMe=true;
+
         // this.show(this.vartext);
       };
 

@@ -4,6 +4,9 @@ import { Component, OnInit,Input } from '@angular/core';
 import { DisplayService } from '../display.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Conceptdomain } from './conceptdomain';
+import { AuthenticationService } from '../auth/authentication.service';
+import { Observable } from 'rxjs/Observable';
+import { UserDetailsService } from '../auth/userdetails.service';
 @Component({
   selector: 'app-sidebardomain',
   templateUrl: './sidebardomain.component.html',
@@ -27,16 +30,21 @@ export class SidebarDomainComponent implements OnInit {
   public serverResponse: UrlRelation[];
   java;
   finance;
+  data;
+  name:string;
+  email;
+
   constructor(private _stompService: SocketService,
     private route: ActivatedRoute,
     private router: Router,
-private usersApi:DisplayService) { }
+private usersApi:DisplayService,
+private _authenticationservice: AuthenticationService,private _userservice: UserDetailsService) { }
   
   ngOnInit() {
-    
+    this.name=this._userservice.getUserName();
+    console.log("USERNAME"+this.name)
     this.loadconcepts();
   }
-
 
   loadconcepts(){
     this.usersApi.getjava().then((res)=>{
@@ -58,6 +66,23 @@ private usersApi:DisplayService) { }
   }
  })
   }
+
+  logout(){
+    console.log("inside logout")
+    this._authenticationservice.logout()
+    .subscribe( response => {
+      this.data = response;
+      this.router.navigate(['final']);
+      
+  },
+  err => {
+      return Observable.throw(err.error);
+  }
+);
+    
+}
+  
+
 
   onClick(domain:any,concept:any) {
     this.showLoader=true;
