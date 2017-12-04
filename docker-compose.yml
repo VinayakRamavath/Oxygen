@@ -3,6 +3,7 @@ services:
   kafka :
     image : spotify/kafka
     container_name : kafka
+    restart: always
     ports :
       - "9092:9092"
       - "2181:2181"
@@ -12,6 +13,7 @@ services:
   api-gateway:
     build : ./Api-Gateway
     container_name : api-gateway
+    restart: always
     image: api
     ports :
       - "5000:8082"
@@ -19,6 +21,7 @@ services:
   eureka:
     build : ./discovery-service-eureka
     container_name : eureka
+    restart: always
     ports :
       - "8020:8020"
 
@@ -37,6 +40,7 @@ services:
 
   ui : 
     build : ./Sementic
+    restart: always
     expose :
       - "4200"
     ports : 
@@ -44,6 +48,7 @@ services:
 
   oauthservice:
     build: ./OAuthService
+    restart: always
     links:
       - sqldb
     # depends_on:
@@ -60,6 +65,7 @@ services:
   graph :
     image : neo4j
     container_name : neo4jgraph
+    restart: always
     ports : 
       - "7474:7474"
       - "7687:7687"
@@ -68,6 +74,7 @@ services:
   domainexpert : 
     build : ./domainexpert
     container_name : domainexpert
+    restart: always
     ports : 
       - "8089:8089"
     depends_on :
@@ -77,6 +84,7 @@ services:
   
   googleapi :
     build : ./GoogleApi
+    restart: always
     ports :
       - "8081:8081"
     depends_on :
@@ -87,6 +95,7 @@ services:
   crawler : 
     container_name : crawler
     build : ./Crawler
+    restart: always
     ports :
       - "8070:8070"
     depends_on : 
@@ -96,6 +105,7 @@ services:
   
   parser :
     build : ./Parser
+    restart: always
     ports :
       - "8060:8060"
     depends_on :
@@ -104,6 +114,7 @@ services:
   
   indexer :
     build : ./Semantic-Search-Index
+    restart: always
     ports :
       - "8085:8085"
     depends_on :
@@ -112,6 +123,7 @@ services:
   
   conceptgraph :
     build : ./neo4j-concept
+    restart: always
     ports :
       - "8095:8095"
     depends_on :
@@ -122,6 +134,7 @@ services:
   intentgraph :
     build : ./neo4j-intent
     container_name : intentgraph
+    restart: always
     ports :
       - "8096:8096"
     depends_on :
@@ -132,6 +145,7 @@ services:
   spellchecker :
     build : ./spell-checker
     container_name : spellchecker
+    restart: always
     ports :
       - "8051:8051"
     depends_on :
@@ -140,6 +154,7 @@ services:
  
   pos_ner :
     build : ./nlp
+    restart: always
     ports :
       - "8052:8052"
     depends_on :
@@ -148,6 +163,7 @@ services:
  
   stopwords :
     build : ./StopWords
+    restart: always
     ports :
       - "8053:8053"
     depends_on :
@@ -156,6 +172,7 @@ services:
   
   lemmatizer :
     build : ./Lemmatizer
+    restart: always
     ports :
       - "8054:8054"
     depends_on :
@@ -165,6 +182,7 @@ services:
   intentsearch:
     build : ./IntentSearchService
     container_name : intentsearch
+    restart: always
     ports :
       - "8055:8055"
     depends_on :
@@ -175,6 +193,7 @@ services:
   stomp:
     build : ./stomp
     container_name : stomp
+    restart: always
     ports :
       - "3000:8088"
     depends_on :

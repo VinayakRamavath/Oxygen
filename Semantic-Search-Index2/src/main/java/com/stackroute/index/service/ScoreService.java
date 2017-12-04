@@ -14,7 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.google.gson.Gson;
-import com.stackroute.index.exception.NANException;
 import com.stackroute.index.exception.TermNotFoundException;
 import com.stackroute.index.messenger.Listener;
 //import com.stackroute.index.model.Indicator;
@@ -71,13 +70,13 @@ public class ScoreService {
 
 	double basicsScore = 0.0, tutorialsScore = 0.0, exampleScore = 0.0, trScore = 0.0, tsScore = 0.0, gsScore = 0.0;
 
-	// Give base intent weighted averages for each term
-	public List<Double> searchTerm(Map<String, Integer> map, Collection<Indicator> termweight) throws NANException {
+	// Get basic, intermediate, advanced weighted averages for each term
+	public List<Double> searchTerm(Map<String, Integer> map, Collection<Indicator> termweight) {
 
 		log.info("Input terms: " + map);
 
 		for (String key : map.keySet()) {
-
+			
 			List<Double> ResultList = null;
 
 			try {
@@ -96,48 +95,29 @@ public class ScoreService {
 			trScore += (double) map.get(key) * ResultList.get(3);
 			tsScore += (double) map.get(key) * ResultList.get(4);
 			gsScore += (double) map.get(key) * ResultList.get(5);
-		}
 
-		double total = basicsScore + tutorialsScore + exampleScore + trScore + tsScore + gsScore;
-		double basicsPercentage = 0;
-		double tutorialsPercentage = 0;
-		double examplePercentage = 0;
-		double trPercentage = 0;
-		double tsPercentage = 0;
-		double gsPercentage = 0;
+		}
 
 		// Calculate Confidence Score
-		if (total == 0) {
-			basicsPercentage = 0;
-			tutorialsPercentage = 0;
-			examplePercentage = 0;
-			trPercentage = 0;
-			tsPercentage = 0;
-			gsPercentage = 0;
-		}
-		else
-		{
-			basicsPercentage = (basicsScore / total) * 10000;
-			tutorialsPercentage = (tutorialsScore / total) * 10000;
-			examplePercentage = (exampleScore / total) * 10000;
-			trPercentage = (trScore / total) * 10000;
-			tsPercentage = (tsScore / total) * 10000;
-			gsPercentage = (gsScore / total) * 10000;
-		}
-		
-		basicsPercentage = Math.round(basicsPercentage*100.0)/100.0;
-		tutorialsPercentage = Math.round(tutorialsPercentage*100.0)/100.0;
-		examplePercentage = Math.round(examplePercentage*100.0)/100.0;
-		trPercentage = Math.round(trPercentage*100.0)/100.0;
-		tsPercentage = Math.round(tsPercentage*100.0)/100.0;
-		gsPercentage = Math.round(gsPercentage*100.0)/100.0;
-		
-		log.info("basicScore: " + basicsPercentage);
-		log.info("tutorialsScore: " + tutorialsPercentage);
-		log.info("exampleScore: " + examplePercentage);
-		log.info("trScore: " + trPercentage);
-		log.info("tsScore: " + tsPercentage);
-		log.info("gsScore: " + gsPercentage);
+		double basicsPercentage = (basicsScore
+				/ (basicsScore + tutorialsScore + exampleScore + trScore + tsScore + gsScore)) * 10000;
+		double tutorialsPercentage = (tutorialsScore
+				/ (basicsScore + tutorialsScore + exampleScore + trScore + tsScore + gsScore)) * 10000;
+		double examplePercentage = (exampleScore
+				/ (basicsScore + tutorialsScore + exampleScore + trScore + tsScore + gsScore)) * 10000;
+		double trPercentage = (trScore / (basicsScore + tutorialsScore + exampleScore + trScore + tsScore + gsScore))
+				* 10000;
+		double tsPercentage = (tsScore / (basicsScore + tutorialsScore + exampleScore + trScore + tsScore + gsScore))
+				* 10000;
+		double gsPercentage = (gsScore / (basicsScore + tutorialsScore + exampleScore + trScore + tsScore + gsScore))
+				* 10000;
+
+		System.out.println("basicScore: " + basicsPercentage);
+		System.out.println("tutorialsScore: " + tutorialsPercentage);
+		System.out.println("exampleScore: " + examplePercentage);
+		System.out.println("trScore: " + trPercentage);
+		System.out.println("tsScore: " + tsPercentage);
+		System.out.println("gsScore: " + gsPercentage);
 
 		// List<Double> list =
 		// Arrays.asList(basicPercentage,intermediatePercentage,advantagePercentage);
@@ -157,26 +137,25 @@ public class ScoreService {
 
 		// search are intent weight from intent graph
 		Map<String, Double> map = searchIntent(intentterms, term);
-		
 		for (String key : map.keySet()) {
 			switch (key) {
 			case "basics":
-				basicscore = Math.round(map.get(key)*100.0)/100.0;
+				basicscore = map.get(key);
 				break;
 			case "tutorials":
-				tutorialscore = Math.round(map.get(key)*100.0)/100.0;
+				tutorialscore = map.get(key);
 				break;
 			case "example":
-				examplescore = Math.round(map.get(key)*100.0)/100.0;
+				examplescore = map.get(key);
 				break;
 			case "complete reference":
-				trscore = Math.round(map.get(key)*100.0)/100.0;
+				trscore = map.get(key);
 				break;
 			case "trouble shooting":
-				tsscore = Math.round(map.get(key)*100.0)/100.0;
+				tsscore = map.get(key);
 				break;
 			case "getting started":
-				gsscore = Math.round(map.get(key)*100.0)/100.0;
+				gsscore = map.get(key);
 				break;
 			default:
 				log.info("key is not in intents");
@@ -184,12 +163,12 @@ public class ScoreService {
 		}
 
 		// if (basics.contains(term)) {
-		// log.info("term found : " + term + " score : " +
+		// System.out.println("term found : " + term + " score : " +
 		// basicsWeight[basics.indexOf(term)]);
 		// basicscore = basicsWeight[basics.indexOf(term)];
 		// }
 		// if (tutorials.contains(term)) {
-		// log.info(
+		// System.out.println(
 		// "term found in tutorials : " + term + " score : " +
 		// tutorialsWeight[tutorials.indexOf(term)]);
 		// tutorialscore = tutorialsWeight[tutorials.indexOf(term)];
@@ -222,7 +201,7 @@ public class ScoreService {
 		list.add(tsscore);
 		list.add(gsscore);
 
-		log.info("list of terms: " + list);
+		System.out.println("list of terms: " + list);
 
 		return list;
 	}

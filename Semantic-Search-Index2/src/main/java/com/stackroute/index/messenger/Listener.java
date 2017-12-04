@@ -7,7 +7,6 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 
-import com.stackroute.index.exception.NANException;
 import com.stackroute.index.exception.NoInputException;
 import com.stackroute.index.model.IndexerModel;
 import com.stackroute.index.model.Indicator;
@@ -43,7 +42,7 @@ public class Listener {
 
 	// listen term score for intent from parser
 	@KafkaListener(topics = "${semantic.kafka.topic.consumer1}", containerFactory = "kafkaListenerContainerFactory")
-	public void listen(ParserModel record) throws NoInputException, NANException {
+	public void listen(ParserModel record) throws NoInputException {
 
 		log.info("Received Data " + record);
 

@@ -6,19 +6,19 @@ import java.util.Map;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-import com.stackroute.index.exception.NANException;
 import com.stackroute.index.model.Indicator;
 
 @Service
 @Component
 public class IndexService {
-
+	
 	SenderService senderService = new SenderService();
 	ScoreService scoreservice = new ScoreService();
 
-	public Map<String, Double> getScore(Map<String, Integer> terms, Collection<Indicator> termweight)
-			throws NANException {
-
-		return senderService.putdata(scoreservice.searchTerm(terms, termweight));
+	public Map<String, Double> getScore( Map<String, Integer> terms, Collection<Indicator> termweight) {
+		
+		return senderService.putdata(scoreservice.searchTerm(terms,termweight));
 	}
+
+	
 }
