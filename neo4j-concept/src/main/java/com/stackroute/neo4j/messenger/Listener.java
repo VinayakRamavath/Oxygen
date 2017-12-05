@@ -82,30 +82,39 @@ public class Listener {
 		System.out.println(record.getConcept());
 		System.out.println(record.getIntent());
 		List<UrlRelation> listurls=urlService.getresultsconcepts(record.getConcept(), record.getIntent());
+		System.out.println(listurls);
 		ArrayList<Double> scores=new ArrayList<Double>();
 		for(UrlRelation item:listurls) {
 			if(record.getIntent()=="Basic") {
 				scores.add(item.getBasicsscore());
+				System.out.println(scores);
 			}
 			if(record.getIntent()=="Tutorial") {
 				scores.add(item.getTutorialscore());
+				System.out.println(scores);
 			}
 			if(record.getIntent()=="Getting Started") {
 				scores.add(item.getGettingstartedsscore());
+				System.out.println(scores);
 			}
 			if(record.getIntent()=="Example") {
 				scores.add(item.getExamplescore());
+				System.out.println(scores);
 			}
 			if(record.getIntent()=="Complete Reference") {
 				scores.add(item.getCompletereferencesscore());
+				System.out.println(scores);
 			}
 			if(record.getIntent()=="TroubleShoot") {
 				scores.add(item.getTroubleshootingsscore());
+				System.out.println(scores);
 			}
 		}
-		Double max=Collections.max(scores);
-		Double min=Collections.min(scores);
-		for(Double score:scores) {
+		double max=Collections.max(scores);
+		System.out.println(max);
+		double min=Collections.min(scores);
+		System.out.println(min);
+		for(double score:scores) {
 			if(max!=min)
 			score=((score-min)/(max-min))*100;
 			else
