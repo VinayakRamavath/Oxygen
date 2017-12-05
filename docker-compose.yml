@@ -25,42 +25,42 @@ services:
     ports :
       - "8020:8020"
 
-  sqldb:
-    image: mysql:latest
-    restart: always
-    expose:
-      - 3306
-    ports:
-      - 3306:3306
-    environment:
-      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
-      MYSQL_ROOT_PASSWORD: aditya123
-      MYSQL_DATABASE: oauth
-      MYSQL_USER: root
+  # sqldb:
+  #   image: mysql:latest
+  #   restart: always
+  #   expose:
+  #     - 3306
+  #   ports:
+  #     - 3306:3306
+  #   environment:
+  #     MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+  #     MYSQL_ROOT_PASSWORD: aditya123
+  #     MYSQL_DATABASE: oauth
+  #     MYSQL_USER: root
 
-  ui : 
-    build : ./Sementic
-    restart: always
-    expose :
-      - "4200"
-    ports : 
-      - "4200:4200"
+  # ui : 
+  #   build : ./Sementic
+  #   restart: always
+  #   expose :
+  #     - "4200"
+  #   ports : 
+  #     - "4200:4200"
 
-  oauthservice:
-    build: ./OAuthService
-    restart: always
-    links:
-      - sqldb
-    # depends_on:
-    #   - sqldb
-    ports:
-      - 8090:8087
-    environment:
-      DATABASE_HOST: sqldb
-      DATABASE_USER: root
-      DATABASE_PASSWORD: aditya123
-      DATABASE_NAME: oauth
-      DATABASE_PORT: 3306
+  # oauthservice:
+  #   build: ./OAuthService
+  #   restart: always
+  #   links:
+  #     - sqldb
+  #   # depends_on:
+  #   #   - sqldb
+  #   ports:
+  #     - 8090:8087
+  #   environment:
+  #     DATABASE_HOST: sqldb
+  #     DATABASE_USER: root
+  #     DATABASE_PASSWORD: aditya123
+  #     DATABASE_NAME: oauth
+  #     DATABASE_PORT: 3306
   
   graph :
     image : neo4j
@@ -142,42 +142,42 @@ services:
       - kafka
       - api-gateway
 
-  spellchecker :
-    build : ./spell-checker
-    container_name : spellchecker
-    restart: always
-    ports :
-      - "8051:8051"
-    depends_on :
-      - kafka
-      - api-gateway
+  # spellchecker :
+  #   build : ./spell-checker
+  #   container_name : spellchecker
+  #   restart: always
+  #   ports :
+  #     - "8051:8051"
+  #   depends_on :
+  #     - kafka
+  #     - api-gateway
  
-  pos_ner :
-    build : ./nlp
-    restart: always
-    ports :
-      - "8052:8052"
-    depends_on :
-      - kafka
-      - eureka
+  # pos_ner :
+  #   build : ./nlp
+  #   restart: always
+  #   ports :
+  #     - "8052:8052"
+  #   depends_on :
+  #     - kafka
+  #     - eureka
  
-  stopwords :
-    build : ./StopWords
-    restart: always
-    ports :
-      - "8053:8053"
-    depends_on :
-      - kafka
-      - eureka
+  # stopwords :
+  #   build : ./StopWords
+  #   restart: always
+  #   ports :
+  #     - "8053:8053"
+  #   depends_on :
+  #     - kafka
+  #     - eureka
   
-  lemmatizer :
-    build : ./Lemmatizer
-    restart: always
-    ports :
-      - "8054:8054"
-    depends_on :
-      - kafka
-      - eureka
+  # lemmatizer :
+  #   build : ./Lemmatizer
+  #   restart: always
+  #   ports :
+  #     - "8054:8054"
+  #   depends_on :
+  #     - kafka
+  #     - eureka
   
   intentsearch:
     build : ./IntentSearchService
@@ -190,12 +190,12 @@ services:
       - graph
       - api-gateway
 
-  stomp:
-    build : ./stomp
-    container_name : stomp
-    restart: always
-    ports :
-      - "3000:8088"
-    depends_on :
-      - kafka
-      - api-gateway
+  # stomp:
+  #   build : ./stomp
+  #   container_name : stomp
+  #   restart: always
+  #   ports :
+  #     - "3000:8088"
+  #   depends_on :
+  #     - kafka
+  #     - api-gateway

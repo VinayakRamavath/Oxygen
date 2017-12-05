@@ -10,5 +10,5 @@ export class UrlRelation{
     gettingstartedsscore:any;
     urlFromGoogle:urlFromGoogle;
     concept2:Concept2;
-    
+    public score:any;
 }

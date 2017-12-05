@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
-import { FakeComponent } from '../fake/fake.component';
+
 import { UserDetailsService } from '../auth/userdetails.service';
 import { Router } from '@angular/router';
 

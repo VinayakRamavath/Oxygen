@@ -204,3 +204,9 @@ a{
 .matselect{
   width:100px;
 }
+
+.listconcept{
+  display:block;
+  text-align: center;
+  color: #2c47ab
+}

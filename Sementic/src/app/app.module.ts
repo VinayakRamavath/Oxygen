@@ -34,13 +34,15 @@ import {BusyModule} from 'angular2-busy';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { HeaderComponent } from './header/header.component';
 import { ChatDialogComponent } from './chat-dialog/chat-dialog.component';
-import { FakeComponent } from './fake/fake.component';
+
 import { SigninComponent } from './signin/signin.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { PostgraphadminComponent } from './postgraphadmin/postgraphadmin.component';
 import { AuthGuardService } from './auth/auth-guard.service';
 import {MatSelectModule} from '@angular/material/select';
+import {MatChipsModule} from '@angular/material/chips';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +53,6 @@ import {MatSelectModule} from '@angular/material/select';
     RegisterComponent,
     SidebarDomainComponent,
     HeaderComponent,
-    FakeComponent,
     SigninComponent,
     PostgraphadminComponent
     
@@ -96,6 +97,7 @@ import {MatSelectModule} from '@angular/material/select';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatDialogModule,
+    MatChipsModule,
     RouterModule.forRoot([
 
       { path: '', component: FinalComponent },
@@ -111,6 +113,7 @@ import {MatSelectModule} from '@angular/material/select';
       { path: 'chat', component: ChatDialogComponent },
       { path: 'login', component: SigninComponent },
       { path: 'administrator/neo4j/admin', component: PostgraphadminComponent }
+   
       
     ])
   ],

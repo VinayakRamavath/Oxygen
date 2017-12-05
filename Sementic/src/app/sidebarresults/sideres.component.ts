@@ -10,9 +10,7 @@ import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 import { startWith } from 'rxjs/operator/startWith';
 import { map } from 'rxjs/operator/map';
-export class State {
-  constructor(public name: string, public population: string, public flag: string) { }
-}
+
 
 @Component({
   selector: 'app-sideres',
@@ -21,12 +19,15 @@ export class State {
 })
 export class SideResComponent implements OnInit {
 
+  
   panelOpenState: boolean = false;
   searchdone: boolean= true;
   fetchedUrls;
   concept:any;
   domain:any;
+  scores:any[];
   intent:any="default";
+  intentscore:any[]=[];
  anjali:boolean=false;
  inputfield:any;
   public serverResponse: UrlRelation[];
@@ -41,33 +42,63 @@ export class SideResComponent implements OnInit {
   start:any;
   responseTime:any;
   respTime:boolean=false;
- 
+ var :Observable<string> = null;
+  myControl: FormControl = new FormControl();
+  filteredOptions: Observable<string[]>;
+
+    options = [
+    'one','two','three'
+     ];
+     
+     step = 0;
+     
+       setStep(index: number) {
+         this.step = index;
+       }
+     
+       nextStep() {
+         this.step++;
+       }
+     
+       prevStep() {
+         this.step--;
+       }
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
  private usersApi:DisplayService,private _stompService: SocketService)  {
+   
 }
 
-  
 
-  ngOnInit() {
+  ngOnInit() { 
     
     this.domain = this.route.snapshot.paramMap.get('domain');
     console.log(this.domain);
-    if (this.domain=="java")
-    this.flagJava=true;
-    if (this.domain=="finance")
-    this.flagInvest=true;
-    
+    if (this.domain=="java"){
+    this.flagJava=true;}
+    if (this.domain=="finance"){
+    this.flagInvest=true;}
 
-    
+    this.filteredOptions = this.myControl.valueChanges
+    .pipe(
+      // startWith(''),
+      // map(val => this.filter(val))
+    );
 
 
   }
- 
+
+ filter(val: string): string[] {
+    return this.options.filter(option =>
+      option.toLowerCase().indexOf(val.toLowerCase()) === 0);
+  }
+
+
   public send(query): void {
-    this.start = new Date().getTime();
+    
+    this.start = Date.now();
     console.log(query)
     this.concept=query;
     this.serverResponse=null;
@@ -94,10 +125,12 @@ export class SideResComponent implements OnInit {
     this._stompService.sendMessage(query);
     this.busy = this._stompService.socketMessages.subscribe( data => {
       console.log("data"+data);
+      
         console.log("INSIDE QUERY");
         
            this.serverResponse =data.result;
            this.intent=data.intent;
+           this.concept=data.concept;
            this.respTime = true;
            if(this.serverResponse.length<1){
             this.respTime=false
@@ -111,11 +144,11 @@ export class SideResComponent implements OnInit {
            }
            this.showLoader=false;
            console.log("serverresponse"+this.serverResponse)
-           
+           this.responseTime = Date.now() - this.start;
          });
          
 
-    this.responseTime = new Date().getTime() - this.start;
+    
     // this.anjali=false;
     // this.fake(query);
     console.log("SEND END");

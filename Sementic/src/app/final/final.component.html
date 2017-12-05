@@ -3,10 +3,10 @@
 <div class="logo">
 
 </div>
-<p id="heading">Semantic Search</p>
+<p id="heading">MINERVA</p>
 <div class="container">
 <mat-accordion class="accordion">
-    <mat-expansion-panel>
+    <mat-expansion-panel  [expanded]="step === 0" (opened)="setStep(0)">
       <mat-expansion-panel-header>
         <mat-panel-title>
           Domains

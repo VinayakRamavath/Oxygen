@@ -4,7 +4,7 @@
 
 <div class="stickyy">
     <mat-accordion>
-            <mat-expansion-panel>
+            <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)">
               <mat-expansion-panel-header>
                 <mat-panel-title>
                         <div *ngIf="this.flagJava" class="backgroundimagee">
@@ -27,8 +27,7 @@
                         
                           <form class="example-form font-color">
                               <mat-form-field class="example-full-width">
-                                <input matInput placeholder="Search" (keyup.enter)="send(sendValue.value)" #sendValue value={{concept}} class="fieldcolor">
-                                
+                                <input matInput placeholder="Search" (keyup.enter)="send(sendValue.value)" autofocus="autofocus" #sendValue value={{concept}} class="fieldcolor">
                             </mat-form-field>
                             
                                 <div class="input-group-btn btn-place">
@@ -49,23 +48,34 @@
             <div class="relative">
                 <div class="container">
                     <div class="col-sm-9 results">
+                            <!-- <div class="matchiplist">
+                                    <mat-chip-list *ngIf="respTime" >
+                                          <mat-chip><em>concept</em> : {{concept}}</mat-chip>
+                                          <mat-chip><em>intent</em> : {{intent}}</mat-chip>
+                                        </mat-chip-list>
+                                      </div> -->
                         <div class="logo">
                             <br>
                         <p id="red">{{text}}</p>
                   <p class="correctedquery"> <em><strong>{{correctedquery}}</strong></em></p>
-                  <p *ngIf="respTime"  class="noresults">{{noresults}} in ({{responseTime}}) seconds</p>
+                  
+                  <p *ngIf="respTime"  class="noresults">{{noresults}} in {{responseTime}} ms</p>
+                  
                 </div>
                     
                     <div *ngFor="let item of serverResponse">
                         <mat-card class="mat">
+                        <div class="confscore">
                         <a href="{{item.urlFromGoogle.name}}" target="_blank"><h4 id="title">{{item.urlFromGoogle.title}}</h4></a>
+                        </div>
                         <a href="{{item.urlFromGoogle.name}}" target="_blank" ><h5 id="url" >{{item.urlFromGoogle.name}}</h5></a>
                         <h5>{{item.urlFromGoogle.snippet}}</h5>
                         <div class="conceptintent">
-                            <p class="concept"><em>concept</em> : {{item.concept2.name}} · </p>
-                            <p class="intent"><em>intent</em> : {{intent}}</p>
-                            <!-- <p class="confidence"><em>confidence score</em> : {{item.concept2.name}}</p> -->
-                        </div>
+                            <p class="concept"><em>concept</em> : {{concept}} ·</p>
+                            <p class="intent"><em>intent</em> : {{intent}} ·</p>
+                            <p class="confidence"><em>confidence score</em> : {{item.score}}</p>
+                            
+                           </div>
                     </mat-card>
                     <br>
                     </div>

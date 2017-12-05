@@ -118,19 +118,21 @@
 
 
 
-              <div class="domain" *ngIf="java">
-                  <h4 class="domtitle">Java Concepts already populated</h4>
+              <div class="domain well" *ngIf="java">
+                  <h4 class="domtitle">Populated Java Concepts </h4>
+                  <hr>
                   <div *ngFor="let item of javaconcepts">
-                  
-                  <div class="boxes"><h5>{{item.name}}</h5></div>
+                    <h5 class="listconcept">{{item.name}}</h5>
+                  <!-- <div class="boxes"><h5>{{item.name}}</h5></div> -->
                 </div>
               </div>
 
-              <div class="domain" *ngIf="finance">
-                  <h4 class="domtitle">Finance Concepts already populated</h4>
+              <div class="domain well" *ngIf="finance">
+                  <h4 class="domtitle">Populated Finance Concepts</h4>
+                  <hr>
                   <div *ngFor="let item of financeconcepts">
-                  
-                  <div class="boxes"><h5>{{item.name}}</h5></div>
+                    <h5 class="listconcept">{{item.name}}</h5>
+                  <!-- <div class="boxes"><h5>{{item.name}}</h5></div> -->
                 </div>
               </div>
 

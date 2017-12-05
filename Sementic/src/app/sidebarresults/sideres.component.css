@@ -183,6 +183,7 @@ color:#e6643b;
     padding-right: 4px;
   }
 
+ 
   .logo p {
     display: inline-block;
     vertical-align: top;
@@ -304,3 +305,19 @@ border:1px solid #d3d3d3;
     font-weight: 500;
     
   }
+
+.matchiplist{
+  margin-top: 10px;
+  margin-bottom: -10px;
+}
+
+mat-chip{
+  color:#2c47ab!important;
+}
+
+.confscore{
+  display: inline;
+}
+.confscore p{
+  float:right;
+}
