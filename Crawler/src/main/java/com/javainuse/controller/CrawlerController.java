@@ -11,6 +11,7 @@ import java.util.concurrent.ExecutionException;
 
 import org.apache.log4j.Logger;
 import org.jsoup.nodes.Document;
+import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -54,14 +55,24 @@ public class CrawlerController {
 		 CrawlerModel crawlerModel = new CrawlerModel();
 		 Document pageContent = crawlerservices.PageContent(customurl.getUrl());
 		 
-		 String title= customurl.getDomain()+" "+customurl.getConcept()+" "+"(Recomended By Domain Expert)";
-		 String snippet="This Url is custom added by the domain expert" + " "+"Domain:"+customurl.getDomain()+" "+ "Concept:"+customurl.getConcept() ;
+//		 String title= customurl.getDomain()+" "+customurl.getConcept()+" "+"(Recomended By Domain Expert)";
+//		 String snippet="This Url is custom added by the domain expert" + " "+"Domain:"+customurl.getDomain()+" "+ "Concept:"+customurl.getConcept() ;
+		 String title= pageContent.title();
+		 String snip=" ";
+		 try {
+		  snip=pageContent.select("meta[name=description]").first().attr("content");}
+		 catch(Exception e) {
+//			 snip=pageContent.select("")
+			 snip="This url explains "+title+". To know more, click the link above.";
+		 }
 		 
+		 System.out.println(snip);
+//		 String snippet = snip.split(".")[0];
 		 	crawlerModel.setUrl(customurl.getUrl());
 			crawlerModel.setDomain(customurl.getDomain());
 			crawlerModel.setConcept(customurl.getConcept());
 			crawlerModel.setDoc(pageContent.toString());
-			crawlerModel.setSnippet(snippet);
+			crawlerModel.setSnippet(snip);
 			crawlerModel.setTitle(title);
 			System.out.println("url post");
 			System.out.println(crawlerModel.getUrl());
