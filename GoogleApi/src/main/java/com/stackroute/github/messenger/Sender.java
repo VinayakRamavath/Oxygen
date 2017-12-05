@@ -19,9 +19,7 @@ public class Sender {
 	private KafkaTemplate<String,SearchResultsModel > kafkaTemplate;
 	private static final Logger LOGGER = LoggerFactory.getLogger(Sender.class);
 	
-	
 	String kafkaTopic = "google";
-	
 
 	public void send(SearchResultsModel a) {
 		System.out.println("sending message"+a);

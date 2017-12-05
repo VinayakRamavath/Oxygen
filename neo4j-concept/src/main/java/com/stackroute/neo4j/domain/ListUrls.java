@@ -9,6 +9,7 @@ public class ListUrls {
 	private String concept;
 	private String intent;
 	private List<UrlRelation> result;
+	private List<Double> scores;
 	public String getQuery() {
 		return query;
 	}
@@ -39,16 +40,23 @@ public class ListUrls {
 	public void setResult(List<UrlRelation> result) {
 		this.result = result;
 	}
-	public ListUrls(String query, String correctedquery, String concept, String intent, List<UrlRelation> result) {
+	public ListUrls(String query, String correctedquery, String concept, String intent,List<Double> scores, List<UrlRelation> result) {
 		super();
 		this.query = query;
 		this.correctedquery = correctedquery;
 		this.concept = concept;
 		this.intent = intent;
+		this.scores=scores;
 		this.result = result;
 	}
 	public ListUrls() {
 		super();
+	}
+	public List<Double> getScores() {
+		return scores;
+	}
+	public void setScores(List<Double> scores) {
+		this.scores = scores;
 	}
 
 }

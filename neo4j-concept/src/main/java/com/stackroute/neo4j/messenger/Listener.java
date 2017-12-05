@@ -6,13 +6,9 @@ import java.util.List;
 //{"url":"vinayak","domain":"java","concept":"interface","title":"title","snippet":"snippet","csmap":{"basicscore":54.166666666666664,"examplescore":0.0,"gsscore":0.0,"trscore":0.0,"tsscore":0.0,"tutorialscore":45.83333333333333}}
 import java.util.concurrent.CountDownLatch;
 
-import org.apache.kafka.clients.consumer.ConsumerRecord;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 
-import com.google.common.collect.Lists;
 import com.stackroute.neo4j.domain.Concept2;
 import com.stackroute.neo4j.domain.IndexerModel;
 import com.stackroute.neo4j.domain.IntentSearchResult;
@@ -85,7 +81,38 @@ public class Listener {
 		// setIntentsearchresult(record);
 		System.out.println(record.getConcept());
 		System.out.println(record.getIntent());
-		ListUrls result = new ListUrls(record.getQuery(), record.getCorrectedquery(),record.getConcept(),record.getIntent(),urlService.getresultsconcepts(record.getConcept(), record.getIntent()));
+		List<UrlRelation> listurls=urlService.getresultsconcepts(record.getConcept(), record.getIntent());
+		ArrayList<Double> scores=new ArrayList<Double>();
+		for(UrlRelation item:listurls) {
+			if(record.getIntent()=="Basic") {
+				scores.add(item.getBasicsscore());
+			}
+			if(record.getIntent()=="Tutorial") {
+				scores.add(item.getTutorialscore());
+			}
+			if(record.getIntent()=="Getting Started") {
+				scores.add(item.getGettingstartedsscore());
+			}
+			if(record.getIntent()=="Example") {
+				scores.add(item.getExamplescore());
+			}
+			if(record.getIntent()=="Complete Reference") {
+				scores.add(item.getCompletereferencesscore());
+			}
+			if(record.getIntent()=="TroubleShoot") {
+				scores.add(item.getTroubleshootingsscore());
+			}
+		}
+		Double max=Collections.max(scores);
+		Double min=Collections.min(scores);
+		for(Double score:scores) {
+			if(max!=min)
+			score=((score-min)/(max-min))*100;
+			else
+				score=(score/max)*100;
+		}
+		
+		ListUrls result = new ListUrls(record.getQuery(), record.getCorrectedquery(),record.getConcept(),record.getIntent(),scores,listurls);
 
 		sender.send(result);
 		// this.setFake(true);

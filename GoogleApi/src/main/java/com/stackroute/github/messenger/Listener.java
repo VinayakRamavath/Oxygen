@@ -85,7 +85,7 @@ public class Listener {
 			}
 
 			int startIndex = 1;
-			for (int j = 0; j < 9; j++) {
+			for (int j = 0; j < 4; j++) {
 				String apikey = list.get(j);
 				System.out.println(apikey);
 				SearchResultsModel a = service.callAPI(apikey, startIndex);
