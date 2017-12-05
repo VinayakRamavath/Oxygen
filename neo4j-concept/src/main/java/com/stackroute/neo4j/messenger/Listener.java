@@ -85,27 +85,29 @@ public class Listener {
 		System.out.println(listurls);
 		ArrayList<Double> scores=new ArrayList<Double>();
 		for(UrlRelation item:listurls) {
-			if(record.getIntent()=="Basic") {
+			if(record.getIntent().equals("Basic")){
+				System.out.println("inside if");
 				scores.add(item.getBasicsscore());
 				System.out.println(scores);
 			}
-			if(record.getIntent()=="Tutorial") {
+			if(record.getIntent().equals("Tutorial")) {
+				
 				scores.add(item.getTutorialscore());
 				System.out.println(scores);
 			}
-			if(record.getIntent()=="Getting Started") {
+			if(record.getIntent().equals("Getting Started")) {
 				scores.add(item.getGettingstartedsscore());
 				System.out.println(scores);
 			}
-			if(record.getIntent()=="Example") {
+			if(record.getIntent().equals("Example")) {
 				scores.add(item.getExamplescore());
 				System.out.println(scores);
 			}
-			if(record.getIntent()=="Complete Reference") {
+			if(record.getIntent().equals("Complete Reference")) {
 				scores.add(item.getCompletereferencesscore());
 				System.out.println(scores);
 			}
-			if(record.getIntent()=="TroubleShoot") {
+			if(record.getIntent().equals("TroubleShoot")) {
 				scores.add(item.getTroubleshootingsscore());
 				System.out.println(scores);
 			}
