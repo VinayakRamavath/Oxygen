@@ -22,6 +22,7 @@ export class DisplayService{
 
     postquery(url:any,intent:any): Promise<void> {
         console.log("hi")
+
          return this.http.post('http://13.126.183.132:5000/spell-checker/spellcheck/query?query='+url,JSON.stringify({}))
                         .toPromise()
                         .then(
