@@ -25,42 +25,42 @@ services:
     ports :
       - "8020:8020"
 
-  # sqldb:
-  #   image: mysql:latest
-  #   restart: always
-  #   expose:
-  #     - 3306
-  #   ports:
-  #     - 3306:3306
-  #   environment:
-  #     MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
-  #     MYSQL_ROOT_PASSWORD: aditya123
-  #     MYSQL_DATABASE: oauth
-  #     MYSQL_USER: root
+  sqldb:
+    image: mysql:latest
+    restart: always
+    expose:
+      - 3306
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+      MYSQL_ROOT_PASSWORD: aditya123
+      MYSQL_DATABASE: oauth
+      MYSQL_USER: root
 
-  # ui : 
-  #   build : ./Sementic
-  #   restart: always
-  #   expose :
-  #     - "4200"
-  #   ports : 
-  #     - "4200:4200"
+  ui : 
+    build : ./Sementic
+    restart: always
+    expose :
+      - "4200"
+    ports : 
+      - "4200:4200"
 
-  # oauthservice:
-  #   build: ./OAuthService
-  #   restart: always
-  #   links:
-  #     - sqldb
-  #   # depends_on:
-  #   #   - sqldb
-  #   ports:
-  #     - 8090:8087
-  #   environment:
-  #     DATABASE_HOST: sqldb
-  #     DATABASE_USER: root
-  #     DATABASE_PASSWORD: aditya123
-  #     DATABASE_NAME: oauth
-  #     DATABASE_PORT: 3306
+  oauthservice:
+    build: ./OAuthService
+    restart: always
+    links:
+      - sqldb
+    # depends_on:
+    #   - sqldb
+    ports:
+      - 8090:8087
+    environment:
+      DATABASE_HOST: sqldb
+      DATABASE_USER: root
+      DATABASE_PASSWORD: aditya123
+      DATABASE_NAME: oauth
+      DATABASE_PORT: 3306
   
   graph :
     image : neo4j
