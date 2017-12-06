@@ -27,7 +27,7 @@
                         
                           <form class="example-form font-color">
                               <mat-form-field class="example-full-width">
-                                <input matInput placeholder="Search" (keyup.enter)="send(sendValue.value)" autofocus="autofocus" #sendValue value={{concept}} class="fieldcolor">
+                                <input matInput placeholder="Search" (keyup.enter)="send(sendValue.value)" autofocus="autofocus" #sendValue value={{query1}} class="fieldcolor">
                             </mat-form-field>
                             
                                 <div class="input-group-btn btn-place">
@@ -72,8 +72,8 @@
                         <h5>{{item.urlFromGoogle.snippet}}</h5>
                         <div class="conceptintent">
                             <p class="concept"><em>concept</em> : {{concept}} ·</p>
-                            <p class="intent"><em>intent</em> : {{intent}} ·</p>
-                            <p class="confidence"><em>confidence score</em> : {{item.score}}</p>
+                            <p class="intent"><em>intent</em> : {{intent}}</p>
+                            <!-- <p class="confidence"><em>confidence score</em> : {{item.score}}</p> -->
                             
                            </div>
                     </mat-card>

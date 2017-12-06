@@ -25,6 +25,7 @@ export class SideResComponent implements OnInit {
   fetchedUrls;
   concept:any;
   domain:any;
+  query1;
   scores:any[];
   intent:any="default";
   intentscore:any[]=[];
@@ -100,7 +101,7 @@ export class SideResComponent implements OnInit {
     
     this.start = Date.now();
     console.log(query)
-    this.concept=query;
+    this.query1=query;
     this.serverResponse=null;
     this.correctedquery=null;
     this.text=null;
