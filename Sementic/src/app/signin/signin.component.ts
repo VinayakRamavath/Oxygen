@@ -19,7 +19,7 @@ export class SigninComponent {
 
   loginForm: FormGroup;
   data: any;
-  emailRegex = '[a-zA-Z0-9.]+@cgi.com';
+  emailRegex = '[a-zA-Z0-9.]+@gmail.com';
   passwordRegex = '^.+$';
   failedlogin = false;
   hide= false;
